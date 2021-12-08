@@ -1,9 +1,10 @@
 import type { AWS } from '@serverless/typescript';
 
-import hello from '@functions/hello';
+import filter from '@functions/filter';
+import search from '@functions/search'
 
 const serverlessConfiguration: AWS = {
-  service: 'scaffolding-api-lambda',
+  service: 'api-lambda-waiter',
   frameworkVersion: '2',
   plugins: ['serverless-esbuild','serverless-offline'],
   provider: {
@@ -24,7 +25,7 @@ const serverlessConfiguration: AWS = {
     lambdaHashingVersion: '20201221',
   },
   // import the function via paths
-  functions: { hello },
+  functions: { filter, search },
   package: { individually: true },
   custom: {
     stage: '${opt:stage}',
